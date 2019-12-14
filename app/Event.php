@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Calendar extends Model
+class Event extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'calendars';
+    protected $table = 'events';
 
     /**
     * The database primary key value.

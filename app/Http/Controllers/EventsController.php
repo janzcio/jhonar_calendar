@@ -6,13 +6,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Calendar;
+use App\Event;
 
-class CalendarController extends Controller
+class EventsController extends Controller
 {
-    public function loadCalendar(){
+    public function load(){
 
-        $calendar =  Calendar::all();
+        $calendar =  Event::all();
         $data = array();
 
         foreach($calendar as $row)
@@ -29,9 +29,9 @@ class CalendarController extends Controller
         
     }
 
-    public function insertEvent(){
+    public function insert(){
         $success = false;
-        $save = Calendar::create([
+        $save = Event::create([
             'title' => $_POST['title'],
             'start_event' => $_POST['start'],
             'end_event' => $_POST['end']
@@ -44,9 +44,9 @@ class CalendarController extends Controller
         return compact('success');
     }
 
-    public function updateEvent(){
+    public function update(){
         $success = false;
-        $update = Calendar::findOrFail($_POST['id']);
+        $update = Event::findOrFail($_POST['id']);
         $update->update([
             'title' => $_POST['title'],
             'start_event' => $_POST['start'],
@@ -60,9 +60,9 @@ class CalendarController extends Controller
         return compact('success');
     }
 
-    public function deleteEvent(){
+    public function delete(){
         $success = false;
-        $delete = Calendar::find($_POST['id']);
+        $delete = Event::find($_POST['id']);
         $delete->delete();
 
         if ($delete) {

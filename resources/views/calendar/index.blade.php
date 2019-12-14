@@ -26,7 +26,7 @@
          center:'title',
          right:'month,agendaWeek,agendaDay'
         },
-        events: '/calendar/load',
+        events: '/event/load',
         selectable:true,
         selectHelper:true,
         select: function(start, end, allDay)
@@ -38,7 +38,7 @@
             var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
       
             $.ajax({
-              url:"/calendar/insert",
+              url:"/event/insert",
               type:"POST",
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -60,7 +60,7 @@
          var title = event.title;
          var id = event.id;
          $.ajax({
-          url:"/calendar/update",
+          url:"/event/update",
           type:"POST",
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -80,7 +80,7 @@
          var title = event.title;
          var id = event.id;
          $.ajax({
-          url:"/calendar/update",
+          url:"/event/update",
           type:"POST",
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -100,7 +100,7 @@
          {
           var id = event.id;
           $.ajax({
-           url:"/calendar/delete",
+           url:"/event/delete",
            type:"POST",
            data:{id:id},
            headers: {

@@ -19,9 +19,9 @@ Route::get('/calendar', function () {
     return view('calendar.index');
 });
 
-/*calendar*/
-Route::get('/calendar/load', 'CalendarController@loadCalendar');
-Route::post('/calendar/insert', 'CalendarController@insertEvent');
-Route::post('/calendar/update', 'CalendarController@updateEvent');
-Route::post('/calendar/delete', 'CalendarController@deleteEvent');
+/*events*/
+Route::get('/event/load', 'EventsController@load');
+Route::post('/event/insert', 'EventsController@insert');
+Route::post('/event/update', 'EventsController@update');
+Route::post('/event/delete', 'EventsController@delete');
 
